@@ -1,0 +1,13 @@
+name: maplespike-eng-2
+revision: "1.0"
+description: {
+  ops: "Infrastructure operations — OOM, drift, runners, mining, secrets",
+  researcher: "Deep research and synthesis",
+  analyst: "Data and systems analysis",
+  "backend-eng": "Backend API development",
+  "frontend-eng": "Frontend and portal development",
+  writer: "Technical writing",
+  "maplespike-eng-1": "MapleSpike data sources",
+  "maplespike-eng-2": "MapleSpike API and MCP",
+  "maplespike-eng-3": "MapleSpike portal",
+}.get("maplespike-eng-2", "")

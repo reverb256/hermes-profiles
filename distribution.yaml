@@ -1,0 +1,25 @@
+name: hermes-profiles
+revision: "1.0"
+description: Hermes Agent profiles for the reverb256 homelab — scoped by role with curated skills, SOUL.md, and provider config.
+author:
+  name: j_kro
+  url: https://github.com/reverb256
+profiles:
+  - name: ops
+    description: Infrastructure operations — OOM, drift, runners, mining, secrets, NixOS cluster fixes
+  - name: researcher
+    description: Deep research and synthesis — literature, domain modeling, reports, cited findings
+  - name: analyst
+    description: Data and systems analysis — log/metric analysis, config comparison, pattern identification
+  - name: backend-eng
+    description: Backend API development — TypeScript, Python, Rust services, databases, MCP servers
+  - name: frontend-eng
+    description: Frontend and portal development — Astro, design systems, bilingual UI, WebMCP
+  - name: writer
+    description: Technical writing — docs, runbooks, specs, ADRs, slide decks, humanized content
+  - name: maplespike-eng-1
+    description: MapleSpike data source modules and MCP tools — Canadian public data ingestion
+  - name: maplespike-eng-2
+    description: MapleSpike API and MCP server development — API endpoints, tool definitions
+  - name: maplespike-eng-3
+    description: MapleSpike portal and frontend — Astro portal, bilingual content, user experience

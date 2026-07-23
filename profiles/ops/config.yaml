@@ -1,0 +1,3 @@
+# ops profile config — installed via hermes profile install
+# Secrets and .env stay per-machine (not in distro)
+# Copy from ~/.hermes/profiles/ops/.env after install
