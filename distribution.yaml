@@ -5,6 +5,11 @@ author:
   name: j_kro
   url: https://github.com/reverb256
 profiles:
+  - name: site-agency
+    description: >
+      Autonomous one-person web agency. Sources local business leads,
+      builds sites from reviews, deploys private previews, earns consent
+      before publishing.
   - name: ops
     description: Infrastructure operations — OOM, drift, runners, mining, secrets, NixOS cluster fixes
   - name: researcher

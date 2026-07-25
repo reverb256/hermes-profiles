@@ -1,0 +1,38 @@
+name: site-agency
+revision: "1.0"
+description: >
+  Autonomous one-person web agency. Finds local businesses without
+  websites, builds one from their real customer reviews, deploys a
+  private preview, and earns consent before publishing.
+author:
+  name: j_kro
+  url: https://github.com/reverb256
+depends_on:
+  - reverb256/site-agency  # pipeline codebase
+skills:
+  - ai-seo
+  - analytics
+  - cold-email
+  - competitor-profiling
+  - computer-use
+  - content-strategy
+  - copywriting
+  - creative
+  - domain-modeling
+  - email
+  - site-agency
+model: minimaxai/minimax-m3
+provider: opencode-go
+terminal:
+  cwd: /home/j_kro/Projects/site-agency
+toolsets:
+  - terminal
+  - file
+  - web
+  - delegation
+environment:
+  AGENCY_MAX_WORKERS: "3"
+  AGENCY_DAILY_BUDGET: "10"
+templates:
+  - outreach-email.md
+  - preview-site.html
