@@ -1,10 +1,16 @@
+model:
+  default: poolside/laguna-s-2.1:free
+  provider: nous
+skills:
+  external_dirs:
+    - ~/.hermes/skills
 plugins:
   enabled: []
 _config_version: 39
 agent: {}
-model:
-  default: upstage/solar-pro4:free
-  provider: nous
+onboarding:
+  seen:
+    tool_progress_prompt: true
 
 fallback_providers:
   - provider: opencode-zen

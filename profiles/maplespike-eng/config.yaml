@@ -1,11 +1,6 @@
-plugins:
-  enabled: []
-_config_version: 39
-agent: {}
 model:
-  default: upstage/solar-pro4:free
+  default: meituan/longcat-2.0:free
   provider: nous
-
 fallback_providers:
   - provider: opencode-zen
     model: opencode/free

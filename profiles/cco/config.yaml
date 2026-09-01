@@ -1,10 +1,13 @@
+model:
+  default: upstage/solar-pro4:free
+  provider: nous
+skills:
+  external_dirs:
+    - ~/.hermes/skills
 plugins:
   enabled: []
 _config_version: 39
 agent: {}
-model:
-  default: upstage/solar-pro4:free
-  provider: nous
 
 fallback_providers:
   - provider: opencode-zen

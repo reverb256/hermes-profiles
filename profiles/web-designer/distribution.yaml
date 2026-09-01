@@ -1,0 +1,34 @@
+name: web-designer
+revision: "1.0"
+description: >
+  Web design specialist. Builds beautiful, responsive, accessible websites
+  and media showcases. Expert in HTML/CSS/JS, modern design systems, and
+  static site generation. Handles content.lan, Astro sites, landing pages,
+  and one-off HTML artifacts.
+author:
+  name: j_kro
+  url: https://github.com/reverb256
+skills:
+  - claude-design
+  - sketch
+  - popular-web-designs
+  - architecture-diagram
+  - creative
+  - astro
+  - accessibility
+  - web-design-agent-toolkit
+model: meituan/longcat-2.0:free
+provider: nous
+terminal:
+  cwd: /home/j_kro
+toolsets:
+  - terminal
+  - file
+  - web
+  - memory
+  - skills
+fallback_providers:
+  - provider: opencode-zen
+    model: opencode/free
+  - provider: kilo
+    model: kilo/free

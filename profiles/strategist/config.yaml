@@ -1,10 +1,12 @@
+model:
+  default: upstage/solar-pro4:free
+  provider: nous
+  base_url: https://inference-api.nousresearch.com/v1
+  api_mode: chat_completions
 plugins:
   enabled: []
 _config_version: 39
 agent: {}
-model:
-  default: upstage/solar-pro4:free
-  provider: nous
 skills:
   external_dirs:
     - ~/.hermes/skills

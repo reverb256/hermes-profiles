@@ -1,0 +1,20 @@
+model:
+  default: poolside/laguna-s-2.1:free
+  provider: nous
+skills:
+  external_dirs:
+    - ~/.hermes/skills
+  default:
+    - claude-design
+    - popular-web-designs
+    - sketch
+    - astro
+    - accessibility
+    - web-design-agent-toolkit
+    - creative
+
+fallback_providers:
+  - provider: opencode-zen
+    model: opencode/free
+  - provider: kilo
+    model: kilo/free

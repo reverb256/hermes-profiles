@@ -1,0 +1,16 @@
+# Runtime state — never commit
+**/cache/
+**/logs/
+**/memories/
+**/runtime/
+**/image_cache/
+**/audio_cache/
+**/hooks/
+**/cron/
+**/pairing/
+**/projects.db
+**/auth.lock
+**/*.etag
+**/*_cache.json
+**/context_length_cache.yaml
+**/profile.yaml

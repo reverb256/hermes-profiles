@@ -1,11 +1,6 @@
-plugins:
-  enabled: []
-_config_version: 39
-agent: {}
 model:
-  default: upstage/solar-pro4:free
-  provider: nous
-
+  default: minimaxai/minimax-m3
+  provider: opencode-go
 fallback_providers:
   - provider: opencode-zen
     model: opencode/free
