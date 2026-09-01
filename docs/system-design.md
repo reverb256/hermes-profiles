@@ -68,8 +68,8 @@ decision; merging them would collapse four judgments into one.
 1. `SOUL.md` — role persona: owns / reads / returns / must not / done when
 2. `distribution.yaml` — name, revision, description, skills, model, provider
 3. `config.yaml` — pinned model/provider, scoped toolsets, fallback routers
-4. Fallback routers: `opencode-zen/opencode/free` + `kilo/kilo/free` LAST
-   (the free-model auto-router, NOT a specific :free model)
+4. Fallback routers: `kilo/kilo-auto/free` + `opencode-zen/openrouter/free` LAST
+   (the free-model auto-routers, verified live 2026-09-01 — NOT specific :free models)
 5. `skills.external_dirs: ["~/.hermes/skills"]` — shared SPOC tree, read-only
 
 ## Model tiering
@@ -79,7 +79,7 @@ decision; merging them would collapse four judgments into one.
 | Exec | longcat-2.0 / solar-pro4 (nous) | c-suite, oracle, strategist |
 | Worker | laguna / stepfun / hy3 (nous) | production crew |
 | Web | laguna-s-2.1 (nous) | web-designer |
-| Router (LAST) | opencode/free + kilo/free | ALL profiles |
+| Router (LAST) | kilo-auto/free + openrouter/free | ALL profiles |
 
 Never parallelize against quota-limited providers (xAI weekly reset).
 
