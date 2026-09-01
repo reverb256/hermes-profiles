@@ -13,7 +13,7 @@ onboarding:
     tool_progress_prompt: true
 
 fallback_providers:
-  - provider: opencode-zen
-    model: opencode/free
   - provider: kilo
-    model: kilo/free
+    model: kilo-auto/free
+  - provider: opencode-zen
+    model: openrouter/free

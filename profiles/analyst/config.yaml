@@ -1,3 +1,53 @@
-# analyst profile config — installed via hermes profile install
-# Secrets and .env stay per-machine (not in distro)
-# Copy from ~/.hermes/profiles/analyst/.env after install
+model:
+  default: upstage/solar-pro4:free
+  provider: nous
+  dispatch_in_gateway: true
+  dispatch_interval_seconds: 60
+  failure_limit: 2
+  worker_log_rotate_bytes: 2097152
+  worker_log_backup_count: 1
+  auto_decompose: true
+  auto_decompose_per_tick: 3
+  orchestrator_profile: analyst
+  default_assignee: analyst
+terminal:
+  cwd: ./Projects
+browser:
+  allow_private_urls: true
+checkpoints:
+  enabled: true
+display:
+  personality: creative
+memory:
+  user_profile_enabled: false
+approvals:
+  mode: smart
+  cron_mode: allow
+  mcp_reload_confirm: false
+security:
+  allow_private_urls: true
+onboarding:
+  seen:
+    tool_progress_prompt: true
+_config_version: 39
+mcp_servers:
+  memlawb:
+    command: /home/j_kro/.local/bin/memlawb-mcp
+    env:
+      MEMLAWB_NAMESPACE: user:j_kro
+      MEMLAWB_DOMAIN: user:agent:analyst
+      LD_LIBRARY_PATH: /run/current-system/sw/share/nix-ld/lib
+      MEMLAWB_URL: http://10.1.1.140:8080
+    connect_timeout: 30
+    enabled: true
+workdir: /home/j_kro
+agent: {}
+skills:
+  external_dirs:
+    - ~/.hermes/skills
+
+fallback_providers:
+  - provider: kilo
+    model: kilo-auto/free
+  - provider: opencode-zen
+    model: openrouter/free
