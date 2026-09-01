@@ -14,3 +14,6 @@
 **/*_cache.json
 **/context_length_cache.yaml
 **/profile.yaml
+**/state.db
+**/state.db-*
+**/*.lock
