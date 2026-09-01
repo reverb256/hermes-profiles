@@ -3,14 +3,19 @@ plugins:
 _config_version: 39
 agent: {}
 model:
-  default: upstage/solar-pro4:free
-  provider: nous
+  default: minimax/minimax-m3:free
+  provider: openrouter-free
 skills:
   external_dirs:
     - ~/.hermes/skills
-
 fallback_providers:
-  - provider: kilo
-    model: kilo-auto/free
+  - provider: openrouter-free
+    model: minimax/minimax-m3:free
+  - provider: openrouter-free
+    model: inclusionai/ling-3.0-flash-fin:free
+  - provider: openrouter-free
+    model: thinkingmachines/inkling:free
   - provider: opencode-zen
-    model: openrouter/free
+    model: ling-3.0-flash-fin-free
+  - provider: nous
+    model: meituan/longcat-2.0:free

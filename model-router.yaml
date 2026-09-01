@@ -1,0 +1,181 @@
+# Model Router — Hermes Profile Tier Assignment
+# Maps each Hermes profile to the ai-inference-gateway routing tiers.
+# Gateway SSOT: ~/Projects/ai-inference-gateway (Kelos model-routing ConfigMap)
+#
+# Tiers:
+#   reasoning   — complex multi-step tasks, trade theses, flagship copy (quality first)
+#   coding      — code generation, refactors, engineering work
+#   analysis    — log/metric analysis, data comparison, pattern identification
+#   commodity   — classification, tagging, summaries, metadata (cost first)
+#   emergency   — local fallback only (vLLM qwen3.5-2b-awq / llama.cpp 4B)
+#
+# Each profile entry: task_tier + model preference order.
+# Primary model is first; gateway circuit breaker handles the rest.
+
+profiles:
+  # ── C-Suite ──────────────────────────────────────────────────────────────
+  caio:
+    task_tier: reasoning
+    models:
+      - meituan/longcat-2.0:free
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+    cost_tier: high_quality_reasoning
+  cro:
+    task_tier: reasoning
+    models:
+      - meituan/longcat-2.0:free
+      - upstage/solar-pro4:free
+    cost_tier: high_quality_reasoning
+  cco:
+    task_tier: reasoning
+    models:
+      - meituan/longcat-2.0:free
+      - stepfun/step-3.7-flash:free
+    cost_tier: high_quality_reasoning
+  coo:
+    task_tier: analysis
+    models:
+      - meituan/longcat-2.0:free
+      - upstage/solar-pro4:free
+    cost_tier: standard
+
+  # ── Engineering ──────────────────────────────────────────────────────────
+  maplespike-eng:
+    task_tier: coding
+    models:
+      - meituan/longcat-2.0:free
+      - stepfun/step-3.7-flash:free
+      - openrouter/free
+    cost_tier: standard
+  site-agency:
+    task_tier: coding
+    models:
+      - minimaxai/minimax-m3
+      - meituan/longcat-2.0:free
+    cost_tier: standard
+
+  # ── Content pipeline ─────────────────────────────────────────────────────
+  strategist:
+    task_tier: reasoning
+    models:
+      - meituan/longcat-2.0:free
+      - stepfun/step-3.7-flash:free
+    cost_tier: high_quality_reasoning
+  writer:
+    task_tier: reasoning
+    models:
+      - meituan/longcat-2.0:free
+      - stepfun/step-3.7-flash:free
+    cost_tier: high_quality_reasoning
+  editor:
+    task_tier: analysis
+    models:
+      - meituan/longcat-2.0:free
+      - upstage/solar-pro4:free
+    cost_tier: standard
+  storyteller:
+    task_tier: reasoning
+    models:
+      - meituan/longcat-2.0:free
+    cost_tier: high_quality_reasoning
+  scriptwriter:
+    task_tier: reasoning
+    models:
+      - meituan/longcat-2.0:free
+    cost_tier: high_quality_reasoning
+  videobot:
+    task_tier: commodity
+    models:
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+    cost_tier: cheap_fast
+  thumbnailbot:
+    task_tier: commodity
+    models:
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+    cost_tier: cheap_fast
+  voicebot:
+    task_tier: commodity
+    models:
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+    cost_tier: cheap_fast
+  seobot:
+    task_tier: commodity
+    models:
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+    cost_tier: cheap_fast
+  publishbot:
+    task_tier: commodity
+    models:
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+    cost_tier: cheap_fast
+  distributor:
+    task_tier: commodity
+    models:
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+    cost_tier: cheap_fast
+  scout:
+    task_tier: commodity
+    models:
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+    cost_tier: cheap_fast
+  oracle:
+    task_tier: analysis
+    models:
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+    cost_tier: standard
+  researcher:
+    task_tier: reasoning
+    models:
+      - minimaxai/minimax-m3
+      - meituan/longcat-2.0:free
+    cost_tier: high_quality_reasoning
+  analyst:
+    task_tier: analysis
+    models:
+      - upstage/solar-pro4:free
+      - meituan/longcat-2.0:free
+    cost_tier: standard
+
+# Trader task tiers (v2 AI layer — trade thesis generation)
+trader:
+  thesis_generation:
+    task_tier: reasoning
+    cost_tier: high_quality_reasoning
+    models:
+      - meituan/longcat-2.0:free
+      - stepfun/step-3.7-flash:free
+  signal_filtering:
+    task_tier: commodity
+    cost_tier: cheap_fast
+    models:
+      - upstage/solar-pro4:free
+      - tencent/hy3:free
+
+# Cost tracking lines — per cost_tier
+cost_tiers:
+  high_quality_reasoning:
+    label: "HQ Reasoning"
+    tracked: true
+  standard:
+    label: "Standard"
+    tracked: true
+  cheap_fast:
+    label: "Commodity"
+    tracked: true
+
+# Auto-switch rules (rate-limit / quality degradation)
+auto_switch:
+  enabled: true
+  failure_threshold: 3
+  cooldown_seconds: 300
+  circuit_breaker: gateway  # use gateway circuit breaker state
+  quality_degrade_after: 2  # failed responses before degrading tier
