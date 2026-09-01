@@ -85,7 +85,11 @@ Never parallelize against quota-limited providers (xAI weekly reset).
 
 ## Skill curation policy
 
-The SPOC skill tree (`~/.hermes/skills/`, 302 skills) is the shared library.
+**Canonical store: nexus `/data/hermes/skills` (3.6TB bcache array, 1.9TB free).**
+zephyr keeps a local working copy at `~/.hermes/skills` and syncs nightly
+(`skills-sync-daily` cron, 3am, bidirectional rsync).
+
+The SPOC skill tree (294 skills) is the shared library.
 Worker profiles consume via `external_dirs` — they do NOT copy skills locally.
 
 | Category | Count (approx) | Action |
